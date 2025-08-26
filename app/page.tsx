@@ -14,7 +14,7 @@ import {
   ScanEye,
   User,
   Calendar,
-  GroupIcon as Gender,
+  Beaker as Gender,
   Home,
   Compass,
   MessageSquare,
@@ -51,16 +51,14 @@ export default function SpySystem() {
   const [whatsappPhoto, setWhatsappPhoto] = useState<string | null>(null)
   const [isLoadingPhoto, setIsLoadingPhoto] = useState(false)
 
-  // Data for random notifications
   const randomUsers = [
     "Ana Silva",
     "João Pereira",
-    "Maria Oliveira",
+    "María Oliveira",
     "Pedro Santos",
     "Camila Souza",
     "Lucas Costa",
     "Mariana Almeida",
-    "Rafael Martins",
     "Rafael Martins",
     "Beatriz Lima",
     "Gustavo Rocha",
@@ -68,15 +66,15 @@ export default function SpySystem() {
     "Felipe Gomes",
     "Lara Ribeiro",
     "Daniel Carvalho",
-    "Sofia Mendes",
+    "Sofía Mendes",
   ]
   const notificationActions = [
-    "accessed the final result.",
-    "downloaded the full report.",
-    "viewed private data.",
-    "initiated a new scan.",
-    "shared the findings.",
-    "verified the intelligence.",
+    "accedió al resultado final.",
+    "descargó el informe completo.",
+    "vio datos privados.",
+    "inició un nuevo escaneo.",
+    "compartió los hallazgos.",
+    "verificó la inteligencia.",
   ]
 
   // Add these arrays for placeholder images
@@ -216,7 +214,7 @@ export default function SpySystem() {
   const startAnalysis = useCallback(() => {
     setIsAnalyzing(true)
     setAnalysisProgress(0)
-    setAnalysisMessage("Initializing facial recognition protocols...")
+    setAnalysisMessage("Inicializando protocolos de reconocimiento facial...")
     setAnimationFrame(0) // Reset animation frame
 
     let progress = 0
@@ -226,16 +224,16 @@ export default function SpySystem() {
     const increment = 100 / (totalDuration / intervalDuration)
 
     const messages = [
-      "Analyzing facial biometrics and unique identifiers...",
-      "Cross-referencing encrypted public and private databases...",
-      "Establishing secure connection to social network APIs...",
-      "Decrypting hidden profiles and shadow accounts...",
-      "Extracting private message logs and media attachments...",
-      "Phone number found! Cross-referencing with social profiles...",
-      "Identifying anomalous interaction patterns and suspicious likes...",
-      "Compiling comprehensive intelligence report...",
-      "Finalizing data integrity verification and extraction...",
-      "Analysis complete. Results ready for decryption.",
+      "Analizando biometría facial e identificadores únicos...",
+      "Cruzando referencias con bases de datos públicas y privadas encriptadas...",
+      "Estableciendo conexión segura con APIs de redes sociales...",
+      "Descifrando perfiles ocultos y cuentas sombra...",
+      "Extrayendo registros de mensajes privados y archivos adjuntos...",
+      "¡Número de teléfono encontrado! Cruzando referencias con perfiles sociales...",
+      "Identificando patrones de interacción anómalos y likes sospechosos...",
+      "Compilando informe de inteligencia integral...",
+      "Finalizando verificación de integridad de datos y extracción...",
+      "Análisis completo. Resultados listos para descifrado.",
     ]
     let messageIndex = 0
 
@@ -291,11 +289,11 @@ export default function SpySystem() {
   const renderStage = () => {
     // Determine the match image based on gender
     const matchImageSrc =
-      investigatedGender === "Feminino"
+      investigatedGender === "Femenino"
         ? "/images/tinder-match-female.jpeg"
         : investigatedGender === "Masculino"
-          ? "/images/tinder-match-male.png" // Nova imagem para o match masculino
-          : "/placeholder.svg?height=300&width=200" // Placeholder para 'Outro' ou não selecionado
+          ? "/images/tinder-match-male.png" // Nueva imagen para el match masculino
+          : "/placeholder.svg?height=300&width=200" // Placeholder para 'Otro' o no seleccionado
 
     switch (currentStage) {
       case 0:
@@ -303,13 +301,13 @@ export default function SpySystem() {
           <div className="text-center space-y-8">
             <p className="text-4xl md:text-5xl font-bold text-white tracking-wider animate-pulse">SPY 3</p>
             <h1 className="text-2xl md:text-3xl font-bold text-white tracking-wider animate-pulse">
-              💔 FEELING BETRAYED?
+              💔 ¿TE SIENTES TRAICIONADA?
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              “You deserve to know the truth. Even the conversations he tried to hide…”
+              "Mereces saber la verdad. Incluso las conversaciones que él trató de ocultar…"
             </p>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Discover hidden profiles, private messages, and suspicious likes on:
+              Descubre perfiles ocultos, mensajes privados y likes sospechosos en:
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-3xl">
               <div className="flex flex-col items-center gap-2">
@@ -329,7 +327,7 @@ export default function SpySystem() {
               onClick={nextStage}
               className="mt-10 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-pink-500 to-red-600 text-white shadow-lg hover:from-pink-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 animate-pulse-slow"
             >
-              ➡️ START SCANNING
+              ➡️ COMENZAR ESCANEO
             </Button>
           </div>
         )
@@ -337,17 +335,17 @@ export default function SpySystem() {
         return (
           <div className="text-center space-y-6 px-4">
             <h2 className="text-2xl md:text-4xl font-bold text-white animate-fade-in">
-              📊 <span className="text-pink-400">TARGET</span> PROFILE
+              📊 PERFIL <span className="text-pink-400">OBJETIVO</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-300 animate-fade-in-delay-1">
-              Complete the investigation profile for enhanced analysis
+              Completa el perfil de investigación para un análisis mejorado
             </p>
             <div className="w-full max-w-sm mx-auto space-y-4">
               <div className="relative">
                 <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <input
                   type="number"
-                  placeholder="Age of the investigated person"
+                  placeholder="Edad de la persona investigada"
                   value={investigatedAge}
                   onChange={(e) => setInvestigatedAge(e.target.value)}
                   className="w-full p-3 pl-10 bg-gray-800/50 border border-gray-700 rounded-lg text-white text-base focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -363,11 +361,11 @@ export default function SpySystem() {
                   className="w-full p-3 pl-10 bg-gray-800/50 border border-gray-700 rounded-lg text-white text-base appearance-none focus:outline-none focus:ring-2 focus:ring-pink-500"
                 >
                   <option value="" disabled>
-                    Select Gender
+                    Seleccionar Género
                   </option>
-                  <option value="Masculino">Male</option>
-                  <option value="Feminino">Female</option>
-                  <option value="Outro">Other</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                  <option value="Otro">Otro</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
                   <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -379,7 +377,7 @@ export default function SpySystem() {
                 <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <input
                   type="text"
-                  placeholder="Location (e.g., New York, USA)"
+                  placeholder="Ubicación (ej., Madrid, España)"
                   value={investigatedLocation}
                   onChange={(e) => setInvestigatedLocation(e.target.value)}
                   className="w-full p-3 pl-10 bg-gray-800/50 border border-gray-700 rounded-lg text-white text-base focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -389,7 +387,7 @@ export default function SpySystem() {
                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <div className="flex">
                   <select
-                    value={investigatedPhone.split(" ")[0] || "+1"}
+                    value={investigatedPhone.split(" ")[0] || "+34"}
                     onChange={(e) => {
                       const countryCode = e.target.value
                       const phoneNumber = investigatedPhone.split(" ")[1] || ""
@@ -609,10 +607,10 @@ export default function SpySystem() {
                   </select>
                   <input
                     type="tel"
-                    placeholder="Phone number"
+                    placeholder="Número de teléfono"
                     value={investigatedPhone.split(" ")[1] || ""}
                     onChange={(e) => {
-                      const countryCode = investigatedPhone.split(" ")[0] || "+1"
+                      const countryCode = investigatedPhone.split(" ")[0] || "+34"
                       const fullPhone = `${countryCode} ${e.target.value}`
                       setInvestigatedPhone(fullPhone)
                       if (e.target.value.length >= 8) {
@@ -640,10 +638,10 @@ export default function SpySystem() {
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-green-400 font-medium">
-                        {isLoadingPhoto ? "Searching WhatsApp..." : "WhatsApp Profile Found"}
+                        {isLoadingPhoto ? "Buscando en WhatsApp..." : "Perfil de WhatsApp Encontrado"}
                       </p>
                       <p className="text-xs text-gray-400">
-                        {isLoadingPhoto ? "Analyzing phone number..." : "Profile photo retrieved"}
+                        {isLoadingPhoto ? "Analizando número de teléfono..." : "Foto de perfil recuperada"}
                       </p>
                     </div>
                   </div>
@@ -655,7 +653,7 @@ export default function SpySystem() {
               disabled={!investigatedAge || !investigatedGender || !investigatedLocation || !investigatedPhone}
               className="mt-8 px-8 py-4 text-lg font-bold uppercase bg-gradient-to-r from-pink-500 to-red-600 text-white shadow-lg hover:from-pink-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 animate-pulse-slow disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              ➡️ CONTINUE
+              ➡️ CONTINUAR
             </Button>
           </div>
         )
@@ -663,7 +661,7 @@ export default function SpySystem() {
         return (
           <div className="text-center space-y-8">
             <p className="text-3xl md:text-4xl font-bold text-white animate-pulse">
-              📸 Select a photo for facial analysis...
+              📸 Selecciona una foto para análisis facial...
             </p>
             <div className="relative w-full max-w-md mx-auto border-2 border-dashed border-gray-600 p-6 rounded-lg text-gray-400 flex flex-col items-center justify-center gap-3 bg-gray-800/30 hover:border-gray-500 transition-colors duration-200 cursor-pointer">
               <input
@@ -683,24 +681,24 @@ export default function SpySystem() {
                 <Upload size={40} className="text-gray-500" />
               )}
               <p className="text-base">
-                {fileName ? `File selected: ${fileName}` : "Drag and drop or click to select"}
+                {fileName ? `Archivo seleccionado: ${fileName}` : "Arrastra y suelta o haz clic para seleccionar"}
               </p>
               {fileName && !isAnalyzing && (
                 <div className="mt-3 text-green-400 flex items-center gap-2 animate-fade-in">
                   <ScanEye size={20} />
-                  <span className="text-lg">Ready to scan!</span>
+                  <span className="text-lg">¡Listo para escanear!</span>
                 </div>
               )}
             </div>
 
             <p className="text-2xl md:text-3xl font-bold text-white animate-pulse mt-8">
-              🎯 TARGET IDENTIFICATION: Enter social handle
+              🎯 IDENTIFICACIÓN DEL OBJETIVO: Ingresa el usuario social
             </p>
             <div className="relative w-full max-w-md mx-auto">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
               <input
                 type="text"
-                placeholder="@target_user"
+                placeholder="@usuario_objetivo"
                 value={investigatedHandle}
                 onChange={(e) => setInvestigatedHandle(e.target.value)}
                 className="w-full p-3 pl-10 bg-gray-800/50 border border-gray-700 rounded-lg text-white text-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
@@ -724,7 +722,7 @@ export default function SpySystem() {
                 />
                 <div className="relative z-10">
                   <p className="text-xl font-bold text-white font-mono">
-                    <span className="text-green-400">[SCANNING]</span> {analysisMessage} ({analysisProgress}%)
+                    <span className="text-green-400">[ESCANEANDO]</span> {analysisMessage} ({analysisProgress}%)
                   </p>
                   <div className="w-full bg-gray-700 rounded-full h-3 mt-3">
                     <div
@@ -733,7 +731,7 @@ export default function SpySystem() {
                     ></div>
                   </div>
                   <p className="text-lg font-bold text-gray-300 animate-pulse mt-3 font-mono">
-                    <span className="text-yellow-400">[STATUS]</span> Searching for connected accounts...
+                    <span className="text-yellow-400">[ESTADO]</span> Buscando cuentas conectadas...
                   </p>
                   {analysisProgress >= 60 && (
                     <div className="flex items-center gap-3 mt-3 p-2 bg-green-900/30 rounded-lg border border-green-700 animate-fade-in">
@@ -743,7 +741,7 @@ export default function SpySystem() {
                         className="w-8 h-8 rounded-full object-cover border-2 border-green-400"
                       />
                       <p className="text-lg font-bold text-green-400 font-mono">
-                        <span className="text-green-300">[PHONE FOUND]</span> {investigatedPhone}
+                        <span className="text-green-300">[TELÉFONO ENCONTRADO]</span> {investigatedPhone}
                       </p>
                       <CheckCircle size={20} className="text-green-400" />
                     </div>
@@ -755,7 +753,7 @@ export default function SpySystem() {
                       {[...Array(9)].map((_, i) => {
                         let src = "/placeholder.svg" // Default placeholder
                         const currentPlaceholders =
-                          investigatedGender === "Feminino" ? femalePlaceholders : malePlaceholders
+                          investigatedGender === "Femenino" ? femalePlaceholders : malePlaceholders
 
                         // Determine the source based on analysis progress and square index
                         if (isAnalyzing && analysisProgress < 90) {
@@ -805,7 +803,7 @@ export default function SpySystem() {
               disabled={!fileName || !investigatedHandle || isAnalyzing} // Disable until file AND handle are present
               className="mt-10 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-pink-500 to-red-600 text-white shadow-lg hover:from-pink-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 animate-pulse-slow disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isAnalyzing ? "ANALYZING..." : "➡️ CONTINUE"}
+              {isAnalyzing ? "ANALIZANDO..." : "➡️ CONTINUAR"}
             </Button>
           </div>
         )
@@ -814,10 +812,11 @@ export default function SpySystem() {
           <div className="text-center space-y-8">
             <div className="grid gap-3 text-left max-w-xl mx-auto">
               <p className="text-lg md:text-xl text-green-400 flex items-center gap-2 animate-fade-in">
-                <CheckCircle className="text-green-400" size={28} /> Instagram account found. Last access: 3h ago.
+                <CheckCircle className="text-green-400" size={28} /> Cuenta de Instagram encontrada. Último acceso: hace
+                3h.
               </p>
               <p className="text-lg md:text-xl text-red-400 flex items-center gap-2 animate-fade-in-delay-1">
-                <Flame className="text-red-400" size={28} /> Hidden Tinder profile detected.
+                <Flame className="text-red-400" size={28} /> Perfil oculto de Tinder detectado.
               </p>
               <p className="text-lg md:text-xl text-blue-400 flex items-center gap-2 animate-fade-in-delay-2">
                 {imagePreviewUrl ? (
@@ -835,14 +834,14 @@ export default function SpySystem() {
                 ) : (
                   <MessageCircle className="text-blue-400" size={28} />
                 )}
-                Private messages found.
+                Mensajes privados encontrados.
               </p>
               <p className="text-lg md:text-xl text-pink-400 flex items-center gap-2 animate-fade-in-delay-3">
-                <Heart className="text-pink-400" size={28} /> Suspicious likes identified on old posts.
+                <Heart className="text-pink-400" size={28} /> Likes sospechosos identificados en publicaciones antiguas.
               </p>
               {investigatedLocation && (
                 <p className="text-lg md:text-xl text-purple-400 flex items-center gap-2 animate-fade-in-delay-4">
-                  <MapPin className="text-purple-400" size={28} /> Location detected: {investigatedLocation}.
+                  <MapPin className="text-purple-400" size={28} /> Ubicación detectada: {investigatedLocation}.
                 </p>
               )}
               {analysisProgress >= 60 && (
@@ -856,7 +855,7 @@ export default function SpySystem() {
                   )}
                   <div>
                     <p className="text-lg md:text-xl text-green-400 flex items-center gap-2">
-                      <Phone className="text-green-400" size={28} /> PHONE FOUND
+                      <Phone className="text-green-400" size={28} /> TELÉFONO ENCONTRADO
                     </p>
                     <p className="text-sm text-gray-300">{investigatedPhone}</p>
                   </div>
@@ -864,13 +863,13 @@ export default function SpySystem() {
               )}
               <div className="relative mt-6 p-3 bg-gray-800/50 rounded-lg border border-gray-700 animate-fade-in-delay-4">
                 <p className="text-base text-white font-mono">
-                  <span className="text-green-400">[SYSTEM_LOG]</span> New activity detected:
+                  <span className="text-green-400">[REGISTRO_SISTEMA]</span> Nueva actividad detectada:
                 </p>
                 <p className="text-base text-white font-mono ml-3">
-                  <span className="text-blue-400">[INSTAGRAM]</span> @alexia_30 liked your photo.
+                  <span className="text-blue-400">[INSTAGRAM]</span> @alexia_30 le gustó tu foto.
                 </p>
                 <p className="text-base text-white font-mono ml-3">
-                  <span className="text-blue-400">[INSTAGRAM]</span> New message from @izes.
+                  <span className="text-blue-400">[INSTAGRAM]</span> Nuevo mensaje de @izes.
                 </p>
               </div>
 
@@ -885,9 +884,9 @@ export default function SpySystem() {
                   />
                   <div className="flex-1">
                     <p className="text-white text-sm">
-                      <span className="font-semibold">@alexia_30</span> liked your photo
+                      <span className="font-semibold">@alexia_30</span> le gustó tu foto
                     </p>
-                    <p className="text-gray-400 text-xs">2 minutes ago</p>
+                    <p className="text-gray-400 text-xs">hace 2 minutos</p>
                   </div>
                   <Heart className="text-pink-500" size={16} />
                 </div>
@@ -901,9 +900,9 @@ export default function SpySystem() {
                   />
                   <div className="flex-1">
                     <p className="text-white text-sm">
-                      <span className="font-semibold">@izes</span> sent you a message
+                      <span className="font-semibold">@izes</span> te envió un mensaje
                     </p>
-                    <p className="text-gray-400 text-xs">5 minutes ago</p>
+                    <p className="text-gray-400 text-xs">hace 5 minutos</p>
                   </div>
                   <MessageCircle className="text-blue-500" size={16} />
                 </div>
@@ -917,10 +916,10 @@ export default function SpySystem() {
                   />
                   <div>
                     <p className="text-sm text-white font-bold">
-                      {investigatedHandle || "@alvo"}
-                      <span className="text-gray-400 font-normal ml-1">is typing...</span>
+                      {investigatedHandle || "@objetivo"}
+                      <span className="text-gray-400 font-normal ml-1">está escribiendo...</span>
                     </p>
-                    <p className="text-xs text-gray-500">Just now</p>
+                    <p className="text-xs text-gray-500">ahora mismo</p>
                   </div>
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse ml-auto"></span>
                 </div>
@@ -931,16 +930,13 @@ export default function SpySystem() {
                     src={imagePreviewUrl || "/placeholder.svg"}
                     alt="User Avatar"
                     className="w-10 h-10 rounded-full object-cover border-2 border-blue-500"
-                    src={imagePreviewUrl || "/placeholder.svg"}
-                    alt="User Avatar"
-                    className="w-10 h-10 rounded-full object-cover border-2 border-blue-500"
                   />
                   <div>
                     <p className="text-sm text-white font-bold">
-                      {investigatedHandle || "@alvo"}
-                      <span className="text-gray-400 font-normal ml-1">sent a new message.</span>
+                      {investigatedHandle || "@objetivo"}
+                      <span className="text-gray-400 font-normal ml-1">envió un nuevo mensaje.</span>
                     </p>
-                    <p className="text-xs text-gray-500">1 minute ago</p>
+                    <p className="text-xs text-gray-500">hace 1 minuto</p>
                   </div>
                   <MessageCircle size={20} className="text-blue-500 ml-auto" />
                 </div>
@@ -949,8 +945,8 @@ export default function SpySystem() {
               {/* Original section for blurred images and comments - adjusted delay */}
               <div className="mt-6 space-y-5 text-left">
                 <p className="text-xl md:text-2xl text-white font-bold animate-fade-in-delay-9">
-                  <span className="text-red-400">INTERCEPTED:</span> Suspicious Likes from{" "}
-                  {investigatedHandle || "@alvo"}
+                  <span className="text-red-400">INTERCEPTADO:</span> Likes Sospechosos de{" "}
+                  {investigatedHandle || "@objetivo"}
                 </p>
 
                 {/* Liked Photo 1 */}
@@ -967,7 +963,7 @@ export default function SpySystem() {
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <Heart size={16} className="text-pink-400" />
-                    <span className="text-sm text-gray-300">1.2K likes</span>
+                    <span className="text-sm text-gray-300">1.2K me gusta</span>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <img
@@ -976,8 +972,8 @@ export default function SpySystem() {
                       className="w-8 h-8 rounded-full object-cover border border-gray-500"
                     />
                     <div>
-                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@alvo"}</p>
-                      <p className="text-white text-sm">“That drink looks great! Miss a hangout like that.”</p>
+                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@objetivo"}</p>
+                      <p className="text-white text-sm">"¡Esa bebida se ve genial! Extraño una salida así."</p>
                     </div>
                   </div>
                 </div>
@@ -996,7 +992,7 @@ export default function SpySystem() {
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <Heart size={16} className="text-pink-400" />
-                    <span className="text-sm text-gray-300">876 likes</span>
+                    <span className="text-sm text-gray-300">876 me gusta</span>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <img
@@ -1005,8 +1001,8 @@ export default function SpySystem() {
                       className="w-8 h-8 rounded-full object-cover border border-gray-500"
                     />
                     <div>
-                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@alvo"}</p>
-                      <p className="text-white text-sm">“What a night! You’re radiant in that photo.”</p>
+                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@objetivo"}</p>
+                      <p className="text-white text-sm">"¡Qué noche! Te ves radiante en esa foto."</p>
                     </div>
                   </div>
                 </div>
@@ -1025,7 +1021,7 @@ export default function SpySystem() {
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <Heart size={16} className="text-pink-400" />
-                    <span className="text-sm text-gray-300">2.1K likes</span>
+                    <span className="text-sm text-gray-300">2.1K me gusta</span>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <img
@@ -1034,8 +1030,10 @@ export default function SpySystem() {
                       className="w-8 h-8 rounded-full object-cover border border-gray-500"
                     />
                     <div>
-                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@alvo"}</p>
-                      <p className="text-white text-sm">“Relaxing the right way! Love a good wine.”</p>
+                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@objetivo"}</p>
+                      <p className="text-white text-sm">
+                        "¡Relajándose de la manera correcta! Me encanta un buen vino."
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1053,7 +1051,7 @@ export default function SpySystem() {
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <Heart size={16} className="text-pink-400" />
-                    <span className="text-sm text-gray-300">1.5K likes</span>
+                    <span className="text-sm text-gray-300">1.5K me gusta</span>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
                     <img
@@ -1062,8 +1060,8 @@ export default function SpySystem() {
                       className="w-8 h-8 rounded-full object-cover border border-gray-500"
                     />
                     <div>
-                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@alvo"}</p>
-                      <p className="text-white text-sm">“Great energy! Wish I was there with you all.”</p>
+                      <p className="text-sm text-gray-300 font-bold">{investigatedHandle || "@objetivo"}</p>
+                      <p className="text-white text-sm">"¡Gran energía! Ojalá hubiera estado ahí con todas ustedes."</p>
                     </div>
                   </div>
                 </div>
@@ -1073,7 +1071,7 @@ export default function SpySystem() {
               onClick={nextStage}
               className="mt-10 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-pink-500 to-red-600 text-white shadow-lg hover:from-pink-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 animate-pulse-slow"
             >
-              ➡️ SEE MORE
+              ➡️ VER MÁS
             </Button>
           </div>
         )
@@ -1090,16 +1088,16 @@ export default function SpySystem() {
                   className="w-10 h-10 rounded-full object-cover border-2 border-red-500"
                 />
                 <span className="text-white font-bold text-lg truncate max-w-[120px]">
-                  {investigatedHandle || "@your_profile"}
+                  {investigatedHandle || "@tu_perfil"}
                 </span>
               </div>
 
               {/* Right: Secondary Navigation */}
               <div className="flex space-x-3 text-gray-400 text-xs z-10">
-                <span className="font-bold text-white border-b-2 border-red-500 pb-1">5 likes</span>
-                <span className="hidden sm:block">Likes sent</span>
+                <span className="font-bold text-white border-b-2 border-red-500 pb-1">5 me gusta</span>
+                <span className="hidden sm:block">Me gusta enviados</span>
                 <span className="hidden sm:block">
-                  Highlights <span className="inline-block w-1.5 h-1.5 bg-red-500 rounded-full ml-0.5"></span>
+                  Destacados <span className="inline-block w-1.5 h-1.5 bg-red-500 rounded-full ml-0.5"></span>
                 </span>
               </div>
             </div>
@@ -1110,7 +1108,7 @@ export default function SpySystem() {
 
             {/* Main Content - "Veja quem já curtiu você." */}
             <div className="p-3 text-center bg-gray-900 flex-shrink-0">
-              <p className="text-base text-gray-300">see who already liked you.</p>
+              <p className="text-base text-gray-300">mira quién ya te dio me gusta.</p>
             </div>
 
             <div className="flex items-center justify-center gap-3 p-4 bg-blue-600/80 text-white font-bold text-lg rounded-lg mx-auto mt-4 w-[90%] animate-fade-in flex-shrink-0">
@@ -1119,7 +1117,7 @@ export default function SpySystem() {
                 alt="Super Like Sender"
                 className="w-10 h-10 rounded-full object-cover border-2 border-yellow-300"
               />
-              <span>You received a Super Like!</span>
+              <span>¡Recibiste un Super Like!</span>
               <Star size={24} className="text-yellow-300 fill-yellow-300" />
             </div>
 
@@ -1127,7 +1125,7 @@ export default function SpySystem() {
               <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in">
                 <div className="flex items-center gap-2">
                   <X size={20} />
-                  <span className="font-bold">You missed a match!</span>
+                  <span className="font-bold">¡Perdiste un match!</span>
                 </div>
               </div>
             )}
@@ -1212,14 +1210,15 @@ export default function SpySystem() {
                     <>
                       <p className="text-xl font-bold">Izabelle, 30</p>
                       <p className="flex items-center gap-1 text-sm text-gray-300">
-                        <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> Online recently...
+                        <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> En línea
+                        recientemente...
                       </p>
                     </>
                   )}
                   {currentPhotoIndex === 1 && (
                     <>
-                      <p className="text-xl font-bold">Likes sent</p>
-                      <p className="text-sm text-gray-300">View activity</p>
+                      <p className="text-xl font-bold">Me gusta enviados</p>
+                      <p className="text-sm text-gray-300">Ver actividad</p>
                     </>
                   )}
                   {currentPhotoIndex === 2 && (
@@ -1253,19 +1252,21 @@ export default function SpySystem() {
               <div className="relative w-full h-60 bg-gray-800 rounded-lg overflow-hidden">
                 <img
                   src={matchImageSrc || "/placeholder.svg"} // Conditional image source
-                  alt={investigatedGender === "Feminino" ? "Female Match Profile" : "Male Match Profile"}
+                  alt={investigatedGender === "Femenino" ? "Female Match Profile" : "Male Match Profile"}
                   className="w-full h-full object-cover filter blur-md"
                 />
-                <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">Nova</span>
+                <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                  Nueva
+                </span>
                 <div className="absolute bottom-2 left-2 text-white text-sm">
                   <span className="bg-gray-700/70 px-2 py-1 rounded-full">30</span>
                   <p className="flex items-center gap-1 mt-1">
-                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> Online recently...
+                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> En línea recientemente...
                   </p>
                 </div>
                 {/* Match Overlay */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-pink-600 to-red-700 opacity-90 text-white text-xl font-bold uppercase">
-                  <Heart size={24} className="mb-1" /> MATCH!
+                  <Heart size={24} className="mb-1" /> ¡MATCH!
                 </div>
               </div>
 
@@ -1279,7 +1280,7 @@ export default function SpySystem() {
                 <div className="absolute bottom-2 left-2 text-white text-sm">
                   <span className="bg-gray-700/70 px-2 py-1 rounded-full">28</span>
                   <p className="flex items-center gap-1 mt-1">
-                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> Online recently...
+                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> En línea recientemente...
                   </p>
                 </div>
               </div>
@@ -1292,13 +1293,13 @@ export default function SpySystem() {
                   className="w-full h-full object-cover filter blur-md"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-yellow-500/80 text-black text-base font-bold text-center p-3">
-                  see who already liked you
+                  mira quién ya te dio me gusta
                   <CheckCircle size={20} className="ml-1 text-black" />
                 </div>
                 <div className="absolute bottom-2 left-2 text-white text-sm">
                   <span className="bg-gray-700/70 px-2 py-1 rounded-full">29</span>
                   <p className="flex items-center gap-1 mt-1">
-                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> Online recently...
+                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> En línea recientemente...
                   </p>
                 </div>
               </div>
@@ -1313,7 +1314,7 @@ export default function SpySystem() {
                 <div className="absolute bottom-2 left-2 text-white text-sm">
                   <span className="bg-gray-700/70 px-2 py-1 rounded-full">24</span>
                   <p className="flex items-center gap-1 mt-1">
-                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> Online recently...
+                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full"></span> En línea recientemente...
                   </p>
                 </div>
               </div>
@@ -1323,18 +1324,18 @@ export default function SpySystem() {
             <div className="flex justify-around items-center p-2 bg-gray-900 border-t border-gray-800 flex-shrink-0">
               <div className="flex flex-col items-center text-gray-400">
                 <Home size={20} />
-                <span className="text-xs">Home</span>
+                <span className="text-xs">Inicio</span>
               </div>
               <div className="flex flex-col items-center text-gray-400">
                 <Compass size={20} />
-                <span className="text-xs">Explore</span>
+                <span className="text-xs">Explorar</span>
               </div>
               <div className="relative flex flex-col items-center text-red-500">
                 <Heart size={20} />
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-3.5 h-3.5 flex items-center justify-center">
                   5
                 </span>
-                <span className="text-xs">Likes</span>
+                <span className="text-xs">Me gusta</span>
               </div>
               <div className="flex flex-col items-center text-gray-400">
                 <MessageSquare size={20} />
@@ -1342,7 +1343,7 @@ export default function SpySystem() {
               </div>
               <div className="flex flex-col items-center text-gray-400">
                 <User size={20} />
-                <span className="text-xs">Profile</span>
+                <span className="text-xs">Perfil</span>
               </div>
             </div>
 
@@ -1350,7 +1351,7 @@ export default function SpySystem() {
               onClick={nextStage}
               className="mt-3 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-red-600 to-red-800 text-white shadow-lg hover:from-red-700 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 animate-pulse-slow flex-shrink-0"
             >
-              ➡️ UNLOCK DETAILS
+              ➡️ DESBLOQUEAR DETALLES
             </Button>
           </div>
         )
@@ -1359,20 +1360,20 @@ export default function SpySystem() {
           <div className="text-center space-y-8">
             <div className="grid gap-3 text-left max-w-xl mx-auto">
               <p className="text-lg md:text-xl text-white animate-fade-in">
-                <span className="text-red-400 font-bold">ALERT:</span> Private messages with suggestive content.
+                <span className="text-red-400 font-bold">ALERTA:</span> Mensajes privados con contenido sugestivo.
               </p>
               <p className="text-lg md:text-xl text-white animate-fade-in-delay-1">
-                <span className="text-red-400 font-bold">ALERT:</span> Likes on unknown profiles' photos.
+                <span className="text-red-400 font-bold">ALERTA:</span> Likes en fotos de perfiles desconocidos.
               </p>
               <p className="text-lg md:text-xl text-white animate-fade-in-delay-2">
-                <span className="text-red-400 font-bold">ALERT:</span> Old interactions recovered.
+                <span className="text-red-400 font-bold">ALERTA:</span> Interacciones antiguas recuperadas.
               </p>
             </div>
             <Button
               onClick={nextStage}
               className="mt-10 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-red-600 to-red-800 text-white shadow-lg hover:from-red-700 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 animate-pulse-slow"
             >
-              ➡️ UNLOCK DETAILS
+              ➡️ DESBLOQUEAR DETALLES
             </Button>
           </div>
         )
@@ -1380,14 +1381,14 @@ export default function SpySystem() {
         return (
           <div className="text-center space-y-8">
             <p className="text-3xl md:text-4xl font-bold text-white max-w-2xl mx-auto leading-relaxed animate-fade-in">
-              “Want full access to secret profiles, deleted conversations, and like history?”
+              "¿Quieres acceso completo a perfiles secretos, conversaciones eliminadas e historial de likes?"
             </p>
             {timeLeft > 0 ? (
               <p className="text-2xl md:text-3xl font-bold text-yellow-400 animate-pulse">
-                Offer ends in: {formatTime(timeLeft)}
+                La oferta termina en: {formatTime(timeLeft)}
               </p>
             ) : (
-              <p className="text-2xl md:text-3xl font-bold text-red-500">Offer expired!</p>
+              <p className="text-2xl md:text-3xl font-bold text-red-500">¡Oferta expirada!</p>
             )}
             <Button
               onClick={() =>
@@ -1396,13 +1397,13 @@ export default function SpySystem() {
               disabled={timeLeft === 0} // Disable button if offer expired
               className="mt-10 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-red-700 to-black text-white shadow-lg hover:from-red-800 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 animate-pulse-slow disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              💣 SEE FINAL RESULT
+              💣 VER RESULTADO FINAL
             </Button>
 
             {/* Random Access Notifications */}
             <div className="mt-8 w-full max-w-md mx-auto text-left space-y-2 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
               <p className="text-lg font-bold text-white mb-3">
-                <span className="text-green-400">[LIVE FEED]</span> Recent Accesses:
+                <span className="text-green-400">[FEED EN VIVO]</span> Accesos Recientes:
               </p>
               {randomNotifications.map((notification) => (
                 <div key={notification.id} className="flex items-center gap-2 text-sm text-gray-300 animate-fade-in">
@@ -1410,7 +1411,9 @@ export default function SpySystem() {
                   <span className="font-mono">
                     <span className="text-purple-300">{notification.user}</span> {notification.action}
                   </span>
-                  <span className="ml-auto text-xs text-gray-500">{notification.time}</span>
+                  <span className="ml-auto text-xs text-gray-500">
+                    {notification.time === "Just now" ? "Ahora mismo" : notification.time}
+                  </span>
                 </div>
               ))}
             </div>
