@@ -50,6 +50,7 @@ export default function SpySystem() {
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [whatsappPhoto, setWhatsappPhoto] = useState<string | null>(null)
   const [isLoadingPhoto, setIsLoadingPhoto] = useState(false)
+  const [whatsappStatus, setWhatsappStatus] = useState("")
 
   const randomUsers = [
     "Ana Silva",
@@ -263,7 +264,9 @@ export default function SpySystem() {
   }, [nextStage, investigatedPhone])
 
   const fetchWhatsAppPhoto = async (phoneNumber: string) => {
-    if (!phoneNumber || phoneNumber.length < 10) return
+    if (!phoneNumber || phoneNumber.length < 8) {
+      return
+    }
 
     setIsLoadingPhoto(true)
     try {
@@ -276,11 +279,30 @@ export default function SpySystem() {
       })
 
       const data = await response.json()
+
       if (data.success && data.result) {
         setWhatsappPhoto(data.result)
+      } else {
+        const frases = [
+          "Perfil de WhatsApp identificado",
+          "Foto de perfil encontrada – monitoreo activo",
+          "Perfil con privacidad activada – puede indicar comportamiento reservado",
+        ]
+        const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]
+        setWhatsappPhoto("/placeholder.svg") // Mantém a foto padrão
+        // Armazena a frase para exibir
+        setWhatsappStatus(fraseAleatoria)
       }
     } catch (error) {
-      console.error("Error fetching WhatsApp photo:", error)
+      console.error("Erro ao buscar foto do WhatsApp:", error)
+      const frases = [
+        "Perfil de WhatsApp identificado",
+        "Foto de perfil encontrada – monitoreo activo",
+        "Perfil con privacidad activada – puede indicar comportamiento reservado",
+      ]
+      const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]
+      setWhatsappPhoto("/placeholder.svg")
+      setWhatsappStatus(fraseAleatoria)
     } finally {
       setIsLoadingPhoto(false)
     }
@@ -383,6 +405,11 @@ export default function SpySystem() {
                   className="w-full p-3 pl-10 bg-gray-800/50 border border-gray-700 rounded-lg text-white text-base focus:outline-none focus:ring-2 focus:ring-pink-500"
                 />
               </div>
+
+              <p className="text-sm text-gray-400 mb-2">
+                El número de teléfono ayuda a sincronizar los datos de las redes
+              </p>
+
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <div className="flex">
@@ -638,10 +665,10 @@ export default function SpySystem() {
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-green-400 font-medium">
-                        {isLoadingPhoto ? "Buscando en WhatsApp..." : "Perfil de WhatsApp Encontrado"}
+                        {isLoadingPhoto ? "Buscando en WhatsApp..." : whatsappStatus || "Perfil de WhatsApp Encontrado"}
                       </p>
                       <p className="text-xs text-gray-400">
-                        {isLoadingPhoto ? "Analizando número de teléfono..." : "Foto de perfil recuperada"}
+                        {isLoadingPhoto ? "Analizando número de teléfono..." : "Análisis de perfil completado"}
                       </p>
                     </div>
                   </div>

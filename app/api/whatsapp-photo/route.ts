@@ -61,7 +61,29 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    const data = await response.json()
+    let data
+    try {
+      const responseText = await response.text()
+      console.log("[v0] Resposta bruta da API:", responseText)
+
+      // Verifica se a resposta é JSON válido
+      if (responseText.trim().startsWith("{") || responseText.trim().startsWith("[")) {
+        data = JSON.parse(responseText)
+      } else {
+        // Se não é JSON, trata como erro e usa fallback
+        console.log("[v0] Resposta não é JSON válido, usando fallback")
+        return NextResponse.json(fallbackPayload, {
+          status: 200,
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
+      }
+    } catch (parseError) {
+      console.error("[v0] Erro ao fazer parse do JSON:", parseError)
+      return NextResponse.json(fallbackPayload, {
+        status: 200,
+        headers: { "Access-Control-Allow-Origin": "*" },
+      })
+    }
 
     const isPhotoPrivate = !data?.link || data.link.includes("no-user-image-icon")
 
