@@ -347,7 +347,7 @@ export default function SpySystem() {
             </div>
             <Button
               onClick={nextStage}
-              className="mt-10 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-pink-500 to-red-600 text-white shadow-lg hover:from-pink-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 animate-pulse-slow"
+              className="mt-10 px-10 py-5 text-xl font-bold uppercase bg-gradient-to-r from-pink-600 to-red-700 text-white shadow-lg hover:from-pink-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 animate-pulse-slow border-2 border-pink-700"
             >
               ➡️ COMENZAR ESCANEO
             </Button>
@@ -405,11 +405,6 @@ export default function SpySystem() {
                   className="w-full p-3 pl-10 bg-gray-800/50 border border-gray-700 rounded-lg text-white text-base focus:outline-none focus:ring-2 focus:ring-pink-500"
                 />
               </div>
-
-              <p className="text-sm text-gray-400 mb-2">
-                El número de teléfono ayuda a sincronizar los datos de las redes
-              </p>
-
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                 <div className="flex">

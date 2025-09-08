@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
   const fallbackPayload = {
     success: true,
     result:
-      "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=",
+      "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1",
     is_photo_private: true,
   }
 
@@ -38,19 +38,16 @@ export async function POST(request: NextRequest) {
 
     // Usa o número como está (deve incluir código do país)
     const fullNumber = cleanPhone
+    const apiUrl = `https://us.api-wa.me/x2136xcbccd9f94561931/contacts/${fullNumber}`
 
-    const response = await fetch(
-      `https://primary-production-aac6.up.railway.app/webhook/request_photo?tel=${fullNumber}`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Origin: "https://whatspy.chat",
-        },
-        // timeout de 10 s (Edge Runtime aceita AbortController)
-        signal: AbortSignal.timeout?.(10_000),
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
       },
-    )
+      // timeout de 10 s (Edge Runtime aceita AbortController)
+      signal: AbortSignal.timeout?.(10_000),
+    })
 
     // Se a API externa falhar, devolvemos payload padrão 200
     if (!response.ok) {
@@ -85,12 +82,13 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    const isPhotoPrivate = !data?.link || data.link.includes("no-user-image-icon")
+    const profilePic = data?.profile?.image
+    const isPhotoPrivate = !profilePic || profilePic.includes("no-user-image-icon")
 
     return NextResponse.json(
       {
         success: true,
-        result: isPhotoPrivate ? fallbackPayload.result : data.link,
+        result: isPhotoPrivate ? fallbackPayload.result : profilePic,
         is_photo_private: isPhotoPrivate,
       },
       {
